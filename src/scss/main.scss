@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@mixin parent($width) {
+  @if $width == 0px {
+    @media only screen and (min-width: 0px) {
+      .row {
+        display: flex;
+        box-sizing: border-box;
+        flex-flow: row wrap;
+        .parent {
+          background-color: darkred;
+          margin: 50px auto;
+          color: ivory;
+          width: 70%;
+          border-radius: 7px;
+          padding: 20px;
+          box-sizing: border-box;
+          box-shadow: 5px 5px 20px black;
+        }
+      }
+    }
+  } @else if $width == 576px {
+    @media only screen and (min-width: 576px) {
+      .row {
+        display: flex;
+        box-sizing: border-box;
+        flex-flow: row wrap;
+        .parent {
+          background-color: cyan;
+          margin: 50px auto;
+          color: ivory;
+          width: 70%;
+          border-radius: 7px;
+          padding: 20px;
+          box-sizing: border-box;
+          box-shadow: 5px 5px 20px black;
+        }
+      }
+    }
+  } @else if $width == 1000px {
+    @media only screen and (min-width: 1000px) {
+      .row {
+        display: flex;
+        box-sizing: border-box;
+        flex-flow: row wrap;
+        .parent {
+          background-color: rebeccapurple;
+          margin: 50px auto;
+          color: ivory;
+          width: 70%;
+          border-radius: 7px;
+          padding: 20px;
+          box-sizing: border-box;
+          box-shadow: 5px 5px 20px black;
+        }
+      }
+    }
+  } 
+}
+@media only screen and (min-width: 0px) {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: 8.333333% * $i;
+    }
+  }
+}
+@media only screen and (min-width: 576px) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      width: 8.333333% * $i;
+    }
+  }
+}
+@media only screen and (min-width: 1000px) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      width: 8.333333% * $i;
+    }
+  }
+}
+@include parent(0px);
+@include parent(576px);
+@include parent(1000px);
